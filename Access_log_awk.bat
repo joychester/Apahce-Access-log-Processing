@@ -1,0 +1,1 @@
+gawk "{print $4, $7, $11}" %1 | gawk "{gsub(/http:\/\/marketview\.starcite\.com/,\"\",$2); print $0}" | gawk "{gsub(/http:\/\/sam\.starcite\.com/, \"\",$2); print $0}" | gawk "{gsub(/\?.*/, \"\?\", $2); print $0}" | gawk "{gsub(/ /, \",\",$0); print $0}" > %2
